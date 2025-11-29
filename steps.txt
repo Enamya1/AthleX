@@ -3,3 +3,19 @@ npm install -g expo-cli
 expo init myReactApp
 
 expo start
+
+
+
+
+how to use the import fumction to get the colors from the assets
+import { colors } from '../assets/colors';
+
+// Then use them in your styles:
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: colors.background,
+  },
+  text: {
+    color: colors.text,
+  },
+});

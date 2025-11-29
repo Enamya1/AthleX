@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import ListItem from "./ListItem";
+import { colors } from "../../assets/colors";
 
 function ServicesSection({ services }) {
   return (
@@ -20,7 +21,7 @@ const styles = StyleSheet.create({
   },
 
   sectionTitle: {
-    color: "#fff",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,

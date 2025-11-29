@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import { colors } from "../../assets/colors";
 
 function MedalsSection({ medals }) {
   return (
@@ -8,7 +9,7 @@ function MedalsSection({ medals }) {
       <View style={styles.medalsRow}>
         {medals.map((medal, index) => (
           <View key={index} style={styles.medalCircle}>
-            <Text style={{ color: "#fff", fontSize: 10 }}>{medal}</Text>
+            <Text style={{ color: colors.text, fontSize: 10 }}>{medal}</Text>
           </View>
         ))}
       </View>
@@ -23,7 +24,7 @@ const styles = StyleSheet.create({
   },
 
   sectionTitle: {
-    color: "#fff",
+    color: colors.text,
     fontSize: 18,
     fontWeight: "bold",
     marginBottom: 10,
@@ -38,7 +39,7 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderRadius: 27,
-    backgroundColor: "#333",
+    backgroundColor: colors.secondary,
     justifyContent: "center",
     alignItems: "center",
   },

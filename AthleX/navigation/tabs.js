@@ -1,5 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import React, { useEffect, useRef } from 'react';
 import { Ionicons } from '@expo/vector-icons';
+import { colors } from "../assets/colors";
+import { Animated } from 'react-native';
 
 
 import HealthScreen from '../screens/HealthScreen';
@@ -14,10 +17,18 @@ const Tabs = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ color, size }) => {
-          let iconName;
+        tabBarIcon: ({ color, size, focused }) => {
+          const scale = useRef(new Animated.Value(1)).current;
 
-     
+          useEffect(() => {
+            Animated.spring(scale, {
+              toValue: focused ? 1.2 : 1,
+              useNativeDriver: true,
+              friction: 7,
+            }).start();
+          }, [focused]);
+
+          let iconName;
           
           if (route.name === "Health") {
             iconName = "heart-outline";
@@ -31,10 +42,17 @@ const Tabs = () => {
             iconName = "happy-outline";
           }
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return (
+            <Animated.View style={{ transform: [{ scale }] }}>
+              <Ionicons name={iconName} size={size} color={color} />
+            </Animated.View>
+          );
         },
-        tabBarActiveTintColor: "#00bfff",
-        tabBarInactiveTintColor: "gray",
+        tabBarActiveTintColor: colors.primary,
+        tabBarInactiveTintColor: colors.gray,
+        tabBarBackground: () => (
+          <Animated.View style={{ flex: 1, backgroundColor: colors.background }} />
+        ),
         headerShown: false,
       })}
     >

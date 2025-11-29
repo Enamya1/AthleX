@@ -1,6 +1,7 @@
 import React from 'react';
 import { TouchableOpacity, View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { colors } from "../../assets/colors";
 
 function Card({ icon, title, subtitle }) {
   return (
@@ -15,21 +16,21 @@ function Card({ icon, title, subtitle }) {
 const styles = StyleSheet.create({
   card: {
     width: "48%",
-    backgroundColor: "#1a1a1a",
+    backgroundColor: colors.secondary,
     padding: 15,
     borderRadius: 15,
     marginBottom: 10,
   },
 
   cardTitle: {
-    color: "#fff",
+    color: colors.text,
     marginTop: 10,
     fontSize: 16,
     fontWeight: "600",
   },
 
   cardSub: {
-    color: "#bbb",
+    color: colors.lightGray,
     fontSize: 12,
     marginTop: 3,
   },
